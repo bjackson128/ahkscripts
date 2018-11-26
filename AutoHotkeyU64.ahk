@@ -8,7 +8,6 @@
 ; New Outlook email
 ^!m:: Run "C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE" /c ipm.note
 
-
 ; New Outlook appointment
 ^!n:: Run "C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE" /c ipm.appointment
 
@@ -48,15 +47,21 @@ Return
 Return
 
 ; Personal email address
-:*:@@::
+:*:@@p::
     IniRead, PersonalEmailVar, %A_ScriptDir%\autohotkey_secret.ini, mysection, PersonalEmailKey
     SendInput %PersonalEmailVar%
 Return
 
-; Work email address
-:*:@w::
-    IniRead, WorkEmailVar, %A_ScriptDir%\autohotkey_secret.ini, mysection, WorkEmailKey
-    SendInput %WorkEmailVar%
+; Work email address 1
+:*:@@a::
+    IniRead, WorkEmailVar1, %A_ScriptDir%\autohotkey_secret.ini, mysection, WorkEmailKey1
+    SendInput %WorkEmailVar1%
+Return
+
+; Work email address 2
+:*:@@r::
+    IniRead, WorkEmailVar2, %A_ScriptDir%\autohotkey_secret.ini, mysection, WorkEmailKey2
+    SendInput %WorkEmailVar2%
 Return
 
 ; Example of standard text replace (does not work with variables
