@@ -8,6 +8,7 @@
 ; New Outlook email
 ^!m:: Run "C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE" /c ipm.note
 
+
 ; New Outlook appointment
 ^!n:: Run "C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE" /c ipm.appointment
 
@@ -36,7 +37,7 @@
 :*:cc1::
     IniRead, ConfDialInVar, %A_ScriptDir%\autohotkey_secret.ini, mysection, ConfDialInKey
     IniRead, ConfCodeVar, %A_ScriptDir%\autohotkey_secret.ini, mysection, ConfCodeKey
-    SendInput %ConfDialInVar%;%ConfCodeVar%{#}`t`t`t`t`t`t`t`t`tDial-in: %ConfDialInVar%`nCode: %ConfCodeVar%{#}
+    SendInput %ConfDialInVar%;%ConfCodeVar%{#}`tDial-in: %ConfDialInVar%`nCode: %ConfCodeVar%{#}
 Return
 
 ; Conference call dial-in for regular text boxes
